@@ -11,10 +11,38 @@
     <title>Weather Dashboard</title>
 </head>
 <body>
-    <div class="jumbotron bg-dark">
+    <div class="jumbotron bg-dark rounded-0">
         <div class="container">
           <h1 class="display-4 text-center text-white">Weather Dashboard</h1>
         </div>
+    </div>
+
+    <div class="main container">
+        <div class="row">
+            <div class="col-12 col-md-3" id="search">
+                <div class="form-group text-center border border-dark rounded p-2">
+                    <label for="searchEl"><span class="font-weight-bold font-size">Search for a City:</span></label>
+                    <input type="text" class="form-control" id="searchEl" placeholder="Enter location">
+                    <button type="submit" class="btn btn-primary mt-2 col-6 col-md-12 col-lg-6">Search</button>
+                </div>
+            </div>
+            <div class="col-12 col-md-9 bg-primary" id="today">
+                <h2><span id="location">This is your location</span></h2>
+                <p>Temp: <span id="temp-now">Current temp</span></p>
+                <p>Wind: <span id="wind-now">Current wind speed</span></p>
+                <p>Humidity: <span id="humidity-now">Current humidity</span></p>
+                <p>UV Index: <span id="uv-now">Current UV index</span></p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-md-3" id="cities">
+                This is where the stored cities go
+            </div>
+            <div class="col-12 col-md-9" id="five-day">
+                This is where the five-day forecast goes
+            </div>
+        </div>
+
     </div>
 
     <!-- Bootstrap -->
