@@ -7,6 +7,11 @@ const handleSearchSubmit = (event) => {
     // Prevent page from reloading
     event.preventDefault();
 
+    // Validate that the form isn't blank
+    if (!searchInputEl.value) {
+        return
+    }    
+
     // Execute API call
     console.log(`User searched for ${searchInputEl.value}`)
 
