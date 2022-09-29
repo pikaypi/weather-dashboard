@@ -26,6 +26,7 @@ const saveNewCity = (cityName) => {
             console.log(`${cityName} is already saved`);
         } else {
             cities.push(cityName);
+            cities.sort();
             localStorage.setItem('cities', JSON.stringify(cities))
         }
     }
