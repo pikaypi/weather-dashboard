@@ -5,6 +5,7 @@ const searchInputEl = document.getElementById('search-input');
 const citiesListEl = document.getElementById('cities');
 const locationEl = document.getElementById('location');
 
+// A function to render the html for each city saved on the list
 const createCityCard = (cityName) => {
     const newCityEl = document.createElement('div');
     newCityEl.setAttribute('id', cityName);
