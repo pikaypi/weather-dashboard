@@ -1,4 +1,4 @@
-// const apiKey = c4cb0eed6f48cdbf2ed519803c8b0164;
+// const apiKey = 'c4cb0eed6f48cdbf2ed519803c8b0164';
 
 const searchEl = document.getElementById('search');
 const searchInputEl = document.getElementById('search-input');
@@ -13,6 +13,23 @@ const createCityCard = (cityName) => {
     newCityEl.innerHTML = cityName
     citiesListEl.append(newCityEl)
 }
+
+// A function that stores new cities into local storage
+const saveNewCity = (cityName) => {
+    var cities;
+    if (!localStorage.cities) {
+        localStorage.setItem('cities', JSON.stringify([cityName]));
+        cities = [cityName]
+    } else {
+        cities = JSON.parse(localStorage.cities)
+        if (cities.includes(cityName)) {
+            console.log(`${cityName} is already saved`);
+        } else {
+            cities.push(cityName);
+            localStorage.setItem('cities', JSON.stringify(cities))
+        }
+    }
+};
 
 // Placeholder function for populating current weather
 const renderCurrentWeather = (cityName) => {
