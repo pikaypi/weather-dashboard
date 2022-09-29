@@ -1,8 +1,9 @@
 // const apiKey = c4cb0eed6f48cdbf2ed519803c8b0164;
 
-const searchEl = document.getElementById('search')
-const searchInputEl = document.getElementById('search-input')
-const citiesListEl = document.getElementById('cities')
+const searchEl = document.getElementById('search');
+const searchInputEl = document.getElementById('search-input');
+const citiesListEl = document.getElementById('cities');
+const locationEl = document.getElementById('location');
 
 const createCityCard = (cityName) => {
     const newCityEl = document.createElement('div');
@@ -10,6 +11,11 @@ const createCityCard = (cityName) => {
     newCityEl.classList.add('border', 'm-1', 'rounded', 'p-1', 'text-center', 'border-dark', 'city');
     newCityEl.innerHTML = cityName
     citiesListEl.append(newCityEl)
+}
+
+// Placeholder function for populating current weather
+const renderCurrentWeather = (cityName) => {
+    locationEl.textContent = cityName;
 }
 
 const handleSearchSubmit = (event) => {
