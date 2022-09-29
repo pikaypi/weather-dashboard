@@ -9,7 +9,7 @@ const createCityCard = (cityName) => {
     newCityEl.setAttribute('id', cityName);
     newCityEl.classList.add('border', 'm-1', 'rounded', 'p-1', 'text-center', 'border-dark', 'city');
     newCityEl.innerHTML = cityName
-    return newCityEl
+    citiesListEl.append(newCityEl)
 }
 
 const handleSearchSubmit = (event) => {
