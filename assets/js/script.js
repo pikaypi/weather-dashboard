@@ -38,7 +38,7 @@ const handleSearchSubmit = (event) => {
     renderCurrentWeather(newCityName)
 
     // Execute API call
-    console.log(`User searched for ${searchInputEl.value}`)
+    console.log(`User searched for ${newCityName}`)
 
     // Clear input field
     searchInputEl.value = ''
