@@ -26,7 +26,16 @@ const handleSearchSubmit = (event) => {
     // Validate that the form isn't blank
     if (!searchInputEl.value) {
         return
-    }
+    };
+
+    // Store the city name in a variable
+    const newCityName = searchInputEl.value
+
+    // If the city isn't already saved, save it
+    saveNewCity(newCityName)
+
+    // TEST: Render the city's name to the current weather card
+    renderCurrentWeather(newCityName)
 
     // Execute API call
     console.log(`User searched for ${searchInputEl.value}`)
