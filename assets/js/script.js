@@ -150,6 +150,10 @@ const renderCurrentWeather = async (cityName) => {
     const weatherFetch = await fetch(`${weatherUrl}?lat=${geoFetch.lat}&lon=${geoFetch.lon}&appid=${apiKey}&units=imperial`)
         .then(res => res.json())
 
+    // Format the date
+    const date = new Date(weatherFetch.dt * 1000)
+    dateEl.textContent = `${digitToMonth(date.getMonth())} ${date.getDate()}, ${date.getFullYear()}`
+
     // Change the content in the display
     locationEl.textContent = geoFetch.name;
     tempNowEl.textContent = weatherFetch.main.temp + '\u2109';
@@ -210,5 +214,3 @@ const handleSearchSubmit = (event) => {
 searchEl.addEventListener('submit', handleSearchSubmit);
 
 renderCitiesList();
-var now = Date.prototype.getDate(1664512563000)
-console.log(now);
