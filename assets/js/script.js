@@ -13,8 +13,6 @@ const windNowEl = document.getElementById('wind-now');
 const humidityNowEl = document.getElementById('humidity-now');
 const uvNowEl = document.getElementById('uv-now')
 
-
-
 // A function to render the html for each city saved on the list
 const createCityCard = (cityName) => {
     const newCityEl = document.createElement('div');
@@ -87,13 +85,13 @@ const renderCurrentWeather = async (cityName) => {
         .then(res => res.json())
         .then(res => res[0]);
 
-    const weatherFetch = await fetch(`${weatherUrl}?lat=${geoFetch.lat}&lon=${geoFetch.lon}&appid=${apiKey}`)
+    const weatherFetch = await fetch(`${weatherUrl}?lat=${geoFetch.lat}&lon=${geoFetch.lon}&appid=${apiKey}&units=imperial`)
         .then(res => res.json())
 
     locationEl.textContent = geoFetch.name;
-    tempNowEl.textContent = weatherFetch.main.temp;
-    windNowEl.textContent = weatherFetch.wind.speed;
-    humidityNowEl.textContent = weatherFetch.main.humidity;
+    tempNowEl.textContent = weatherFetch.main.temp + '\u2109';
+    windNowEl.textContent = weatherFetch.wind.speed + ' MPH';
+    humidityNowEl.textContent = weatherFetch.main.humidity + ' %';
 };
 
 const handleSearchSubmit = (event) => {
