@@ -27,6 +27,25 @@ const createCityCard = (cityName) => {
     return newCityEl
 }
 
+// A function that converts month digit to text
+const digitToMonth = (i) => {
+    const months = [
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December'
+    ]
+    return months[i]
+};
+
 // A function to write the html for each five-day forecast card
 const createForecastCard = (date, icon, description, temperature, wind, humidity) => {
     // Create the card
