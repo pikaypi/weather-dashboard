@@ -8,6 +8,12 @@ const searchEl = document.getElementById('search');
 const searchInputEl = document.getElementById('search-input');
 const citiesListEl = document.getElementById('cities');
 const locationEl = document.getElementById('location');
+const tempNowEl = document.getElementById('temp-now');
+const windNowEl = document.getElementById('wind-now');
+const humidityNowEl = document.getElementById('humidity-now');
+const uvNowEl = document.getElementById('uv-now')
+
+
 
 // A function to render the html for each city saved on the list
 const createCityCard = (cityName) => {
@@ -84,7 +90,10 @@ const renderCurrentWeather = async (cityName) => {
     const weatherFetch = await fetch(`${weatherUrl}?lat=${geoFetch.lat}&lon=${geoFetch.lon}&appid=${apiKey}`)
         .then(res => res.json())
 
-    locationEl.
+    locationEl.textContent = geoFetch.name;
+    tempNowEl.textContent = weatherFetch.main.temp;
+    windNowEl.textContent = weatherFetch.wind.speed;
+    humidityNowEl.textContent = weatherFetch.main.humidity;
 };
 
 const handleSearchSubmit = (event) => {
