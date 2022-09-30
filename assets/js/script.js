@@ -160,7 +160,8 @@ const renderCurrentWeather = async (cityName) => {
     const date = new Date(weatherFetch.dt * 1000)
 
     // Change the content in the display
-    weatherEl.setAttribute('style', 'background-color: #4f87a7;')
+    weatherEl.setAttribute('style', 'background-color: #4f87a7;');
+    weatherEl.classList.add('border', 'border-dark');
     locationEl.textContent = geoFetch.name;
     dateEl.textContent = `${digitToMonth(date.getMonth())} ${date.getDate()}, ${date.getFullYear()}`;
     tempNowEl.textContent = 'Temp: ' + weatherFetch.main.temp + '\u2109';

@@ -6,3 +6,7 @@
 .city:active {
     background-color: #a0a0a0;
 }
+
+#search-btn {
+    background-color: #4f87a7;
+}
