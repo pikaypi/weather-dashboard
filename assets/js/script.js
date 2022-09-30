@@ -83,6 +83,8 @@ const renderCurrentWeather = async (cityName) => {
 
     const weatherFetch = await fetch(`${weatherUrl}?lat=${geoFetch.lat}&lon=${geoFetch.lon}&appid=${apiKey}`)
         .then(res => res.json())
+
+    locationEl.
 };
 
 const handleSearchSubmit = (event) => {
