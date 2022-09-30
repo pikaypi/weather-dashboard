@@ -11,6 +11,7 @@ const citiesListEl = document.getElementById('cities');
 const locationEl = document.getElementById('location');
 
 // Weather element variables
+const weatherEl = document.getElementById('today');
 const tempNowEl = document.getElementById('temp-now');
 const dateEl = document.getElementById('date');
 const windNowEl = document.getElementById('wind-now');
@@ -155,6 +156,7 @@ const renderCurrentWeather = async (cityName) => {
     dateEl.textContent = `${digitToMonth(date.getMonth())} ${date.getDate()}, ${date.getFullYear()}`
 
     // Change the content in the display
+    weatherEl.setAttribute('style', 'background-color: #4f87a7;')
     locationEl.textContent = geoFetch.name;
     tempNowEl.textContent = weatherFetch.main.temp + '\u2109';
     windNowEl.textContent = weatherFetch.wind.speed + ' MPH';
