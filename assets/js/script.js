@@ -12,6 +12,7 @@ const locationEl = document.getElementById('location');
 
 // Weather element variables
 const tempNowEl = document.getElementById('temp-now');
+const dateEl = document.getElementById('date');
 const windNowEl = document.getElementById('wind-now');
 const humidityNowEl = document.getElementById('humidity-now');
 const iconEl = document.getElementById('icon');
@@ -190,3 +191,5 @@ const handleSearchSubmit = (event) => {
 searchEl.addEventListener('submit', handleSearchSubmit);
 
 renderCitiesList();
+var now = Date.prototype.getDate(1664512563000)
+console.log(now);
