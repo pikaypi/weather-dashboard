@@ -1,5 +1,8 @@
-// const apiKey = 'c4cb0eed6f48cdbf2ed519803c8b0164';
+// API variables
+const geoUrl = 'http://api.openweathermap.org/geo/1.0/direct?';
+const apiKey = 'c4cb0eed6f48cdbf2ed519803c8b0164';
 
+// HTML variable
 const searchEl = document.getElementById('search');
 const searchInputEl = document.getElementById('search-input');
 const citiesListEl = document.getElementById('cities');
