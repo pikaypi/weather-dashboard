@@ -37,8 +37,40 @@ const saveNewCity = (cityName) => {
             localStorage.setItem('cities', JSON.stringify(cities))
         }
     }
+
+    // Render the new list of saved cities to the page
+    renderCitiesList();
 };
 
+// A function that renders the cities list from local storage
+const renderCitiesList = () => {
+    // Return if local storage is empty
+    if (!localStorage.cities) {
+        return
+    };
+
+    // Clear the list that may already be on the page
+    while (citiesListEl.firstChild) {
+        citiesListEl.removeChild(citiesListEl.firstChild);
+    };
+
+    // Pull the cities from local storage
+    const cities = JSON.parse(localStorage.cities);
+
+    // Iterate through the cities
+    for (let i = 0; i < cities.length; i++) {
+        // Create each card and append it to the list
+        const newCityEl = createCityCard(cities[i]);
+        citiesListEl.append(newCityEl);
+
+        // Add an event listener to search for the city when clicked
+        const newCityCard = document.getElementById(cities[i]);
+        newCityCard.addEventListener('click', (event) => {
+            searchInputEl.value = cities[i];
+            handleSearchSubmit(event)
+        })
+    };
+};
 // Placeholder function for populating current weather
 const renderCurrentWeather = (cityName) => {
     locationEl.textContent = cityName;
@@ -67,7 +99,9 @@ const handleSearchSubmit = (event) => {
 
     // Clear input field
     searchInputEl.value = ''
-}
+};
+
+searchEl.addEventListener('submit', handleSearchSubmit);
 
 
-searchEl.addEventListener('submit', handleSearchSubmit)
+renderCitiesList();
