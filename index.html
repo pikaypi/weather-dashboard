@@ -19,36 +19,35 @@
         </div>
     </div>
 
-    <div class="main container p-md-0">
+    <main class="main container p-md-0">
         <div class="row">
-            <div class="col-12 col-md-3">
+            <section class="col-3">
                 <form class="form-group text-center border border-dark rounded p-2"  id="search">
                     <label for="search-input"><span class="font-weight-bold font-size">Search for a City:</span></label>
                     <input type="text" class="form-control" id="search-input" placeholder="Enter location">
                     <button type="submit" class="btn btn-primary mt-3 col-6 col-md-12 col-lg-6" id="search-btn">Search</button>
                 </form>
-            </div>
-            <div class="col-12 col-md-9 current p-3" id="today">
-                <h2><span id="location"></span></h2>
-                <h3>
-                    <span id="date"></span>
-                    <img src="" alt="" height="100px" id="icon">
-                </h3>
-                <p>Temp: <span id="temp-now">Current temp</span></p>
-                <p>Wind: <span id="wind-now">Current wind speed</span></p>
-                <p>Humidity: <span id="humidity-now">Current humidity</span></p>
-            </div>
+                <div class="col-12" id="cities">
+                    <!-- This is where the stored cities go -->
+                </div>
+            </section>
+            <section class="col-9">
+                <div class="col-12 current p-3" id="today">
+                    <h2><span id="location"></span></h2>
+                    <h3>
+                        <span id="date"></span>
+                        <img src="" alt="" height="100px" id="icon">
+                    </h3>
+                    <p id="temp-now"></p>
+                    <p id="wind-now"></p>
+                    <p id="humidity-now"></p>
+                </div>
+                <div class="col-12 row mx-auto" id="forecast">
+                    <!-- This is where the five day forecast goes -->
+                </div>
+            </section>
         </div>
-        <div class="row">
-            <div class="col-12 col-md-3" id="cities">
-                <!-- This is where the stored cities go -->
-            </div>
-            <div class="col-12 col-md-9 row mx-auto" id="forecast">
-                <!-- This is where the five day forecast goes -->
-            </div>
-        </div>
-
-    </div>
+    </main>
 
     <!-- Bootstrap -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
