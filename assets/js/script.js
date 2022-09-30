@@ -146,6 +146,26 @@ const renderForecast = async (cityName) => {
     const geoFetch = await fetch(`${geoUrl}?q=${cityName}&appid=${apiKey}`)
     .then(res => res.json())
     .then(res => res[0]);
+
+    // Collect forecast data
+    const forecastFetch = await fetch(`${forecastUrl}?lat=${geoFetch.lat}&lon=${geoFetch.lon}&appid=${apiKey}&units=imperial`)
+        .then(res => res.json())
+        .then(res => res.list);
+    
+    // Clear the forecast that may already be on the page
+    while (forecastEl.firstChild) {
+        forecastEl.removeChild(forecastEl.firstChild);
+    };
+
+    // Render the cards and append them to the forecast section
+    for (let i = 0; i < forecastFetch.length; i++) {
+        const hour = forecastFetch[i].dt_txt.split(' ')[1].split(':')[0]
+        if (hour === '12') {
+            const data = forecastFetch[i];
+            const newForecastEl = createForecastCard(data.dt_txt.split(' ')[0], data.weather[0].icon, data.weather[0].description, data.main.temp, data.wind.speed, data.main.humidity);
+            forecastEl.append(newForecastEl);
+        };
+    };
 };
 
 // A function to handle the request for weather
