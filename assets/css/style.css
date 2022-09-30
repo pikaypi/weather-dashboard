@@ -4,4 +4,9 @@
 
 .city:hover {
     cursor: pointer;
+    background-color: gray;
+}
+
+.city:active {
+    background-color: #a0a0a0;
 }
