@@ -103,5 +103,4 @@ const handleSearchSubmit = (event) => {
 
 searchEl.addEventListener('submit', handleSearchSubmit);
 
-
 renderCitiesList();
