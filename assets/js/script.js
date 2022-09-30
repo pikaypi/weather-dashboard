@@ -158,14 +158,11 @@ const handleSearchSubmit = (event) => {
         return
     };
 
-    // Store the city name in a variable
-    const newCityName = searchInputEl.value
-
-    // If the city isn't already saved, save it
-    saveNewCity(newCityName)
-
-    // TEST: Render the city's name to the current weather card
-    renderCurrentWeather(newCityName)
+    // Collect the user input and render the page
+    const newCity = searchInputEl.value
+    saveNewCity(newCity)
+    renderCurrentWeather(newCity)
+    renderForecast(newCity)
 
     // Clear input field
     searchInputEl.value = ''
