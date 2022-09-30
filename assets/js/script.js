@@ -16,17 +16,24 @@ const createCityCard = (cityName) => {
 
 // A function that stores new cities into local storage
 const saveNewCity = (cityName) => {
+    // Create a variable to hold the cities in storage
     var cities;
+
+    // If storage is empty create a new array with the new city
     if (!localStorage.cities) {
         localStorage.setItem('cities', JSON.stringify([cityName]));
         cities = [cityName]
     } else {
+        // Parse the cities from local storage
         cities = JSON.parse(localStorage.cities)
-        if (cities.includes(cityName)) {
-            console.log(`${cityName} is already saved`);
-        } else {
+
+        // If the city isn't already saved
+        if (!cities.includes(cityName)) {
+            // Add the new city to the array and alphabetize
             cities.push(cityName);
             cities.sort();
+
+            // Save the array as a string in local storage
             localStorage.setItem('cities', JSON.stringify(cities))
         }
     }
