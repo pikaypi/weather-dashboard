@@ -22,6 +22,42 @@ const createCityCard = (cityName) => {
     return newCityEl
 }
 
+// A function to write the html for each five-day forecast card
+const createForecastCard = (date, icon, description, temperature, wind, humidity) => {
+    // Create the card
+    const newForecastEl = document.createElement('div');
+    newForecastEl.setAttribute('id', 'placeholder');
+    newForecastEl.classList.add('border', 'm-1', 'rounded', 'p-1', 'text-center', 'border-dark', 'col');
+    newForecastEl.setAttribute('style', 'height: fit-content')
+    
+    // Add the API data
+    const newDateEl = document.createElement('h6');
+    newDateEl.innerHTML = date;
+
+    const newIconEl = document.createElement('img');
+    newIconEl.setAttribute('src', `http://openweathermap.org/img/wn/${icon}@2x.png`);
+    newIconEl.setAttribute('alt', description);
+
+    const newTemperatureEl = document.createElement('p');
+    newTemperatureEl.textContent = `Temp: ${temperature}` + '\u2109';
+
+    const newWindEl = document.createElement('p');
+    newWindEl.textContent = `Wind: ${wind} MPH`;
+
+    const newHumidityEl = document.createElement('p');
+    newHumidityEl.textContent = `Humidity: ${humidity} %`
+
+    // Append the content to the card
+    newForecastEl.append(newDateEl);
+    newForecastEl.append(newIconEl);
+    newForecastEl.append(newTemperatureEl);
+    newForecastEl.append(newWindEl);
+    newForecastEl.append(newHumidityEl);
+
+    // Return the completed card
+    return newForecastEl;
+};
+
 // A function that stores new cities into local storage
 const saveNewCity = (cityName) => {
     // Create a variable to hold the cities in storage
