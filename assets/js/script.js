@@ -1,6 +1,6 @@
 // API variables
-const geoUrl = 'http://api.openweathermap.org/geo/1.0/direct?';
-const weatherUrl = 'https://api.openweathermap.org/data/2.5/weather?'
+const geoUrl = 'http://api.openweathermap.org/geo/1.0/direct';
+const weatherUrl = 'https://api.openweathermap.org/data/2.5/weather'
 const apiKey = 'c4cb0eed6f48cdbf2ed519803c8b0164';
 
 // HTML variable
@@ -77,13 +77,13 @@ const renderCitiesList = () => {
 };
 // A function for populating current weather
 const renderCurrentWeather = async (cityName) => {
-    const geoFetch = await fetch(`${geoUrl}q=${cityName}&appid=${apiKey}`)
+    const geoFetch = await fetch(`${geoUrl}?q=${cityName}&appid=${apiKey}`)
         .then(res => res.json())
         .then(res => res[0]);
 
+    const weatherFetch = await fetch(`${weatherUrl}?lat=${geoFetch.lat}&lon=${geoFetch.lon}&appid=${apiKey}`)
+        .then(res => res.json())
 };
-
-
 
 const handleSearchSubmit = (event) => {
     // Prevent page from reloading
