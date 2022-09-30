@@ -30,7 +30,6 @@ const createCityCard = (cityName) => {
 const createForecastCard = (date, icon, description, temperature, wind, humidity) => {
     // Create the card
     const newForecastEl = document.createElement('div');
-    newForecastEl.setAttribute('id', 'placeholder');
     newForecastEl.classList.add('border', 'm-1', 'rounded', 'p-1', 'text-center', 'border-dark', 'col');
     newForecastEl.setAttribute('style', 'height: fit-content')
     
