@@ -75,10 +75,15 @@ const renderCitiesList = () => {
         })
     };
 };
-// Placeholder function for populating current weather
-const renderCurrentWeather = (cityName) => {
-    locationEl.textContent = cityName;
-}
+// A function for populating current weather
+const renderCurrentWeather = async (cityName) => {
+    const geoFetch = await fetch(`${geoUrl}q=${cityName}&appid=${apiKey}`)
+        .then(res => res.json())
+        .then(res => res[0]);
+
+};
+
+
 
 const handleSearchSubmit = (event) => {
     // Prevent page from reloading
@@ -97,9 +102,6 @@ const handleSearchSubmit = (event) => {
 
     // TEST: Render the city's name to the current weather card
     renderCurrentWeather(newCityName)
-
-    // Execute API call
-    console.log(`User searched for ${newCityName}`)
 
     // Clear input field
     searchInputEl.value = ''
