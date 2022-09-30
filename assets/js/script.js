@@ -1,19 +1,23 @@
 // API variables
 const geoUrl = 'http://api.openweathermap.org/geo/1.0/direct';
-const weatherUrl = 'https://api.openweathermap.org/data/2.5/weather'
+const weatherUrl = 'https://api.openweathermap.org/data/2.5/weather';
+const forecastUrl = 'https://api.openweathermap.org/data/2.5/forecast';
 const apiKey = 'c4cb0eed6f48cdbf2ed519803c8b0164';
 
-// HTML variable
+// Search element variables
 const searchEl = document.getElementById('search');
 const searchInputEl = document.getElementById('search-input');
 const citiesListEl = document.getElementById('cities');
 const locationEl = document.getElementById('location');
+
+// Weather element variables
 const tempNowEl = document.getElementById('temp-now');
 const windNowEl = document.getElementById('wind-now');
 const humidityNowEl = document.getElementById('humidity-now');
 const iconEl = document.getElementById('icon');
+const forecastEl = document.getElementById('forecast')
 
-// A function to render the html for each city saved on the list
+// A function to write the html for each city saved on the list
 const createCityCard = (cityName) => {
     const newCityEl = document.createElement('div');
     newCityEl.setAttribute('id', cityName);
