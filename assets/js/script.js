@@ -97,6 +97,7 @@ const renderCurrentWeather = async (cityName) => {
     iconEl.setAttribute('alt', weatherFetch.weather[0].description);
 };
 
+// A function to handle the request for weather
 const handleSearchSubmit = (event) => {
     // Prevent page from reloading
     event.preventDefault();
