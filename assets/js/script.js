@@ -47,6 +47,11 @@ const digitToMonth = (i) => {
     return months[i]
 };
 
+const digitToDay = (i) => {
+    const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+    return days[i]
+};
+
 // A function to write the html for each five-day forecast card
 const createForecastCard = (date, icon, description, temperature, wind, humidity) => {
     // Create the card
@@ -187,7 +192,12 @@ const renderForecast = async (cityName) => {
         const hour = forecastFetch[i].dt_txt.split(' ')[1].split(':')[0]
         if (hour === '12') {
             const data = forecastFetch[i];
-            const newForecastEl = createForecastCard(data.dt_txt.split(' ')[0], data.weather[0].icon, data.weather[0].description, data.main.temp, data.wind.speed, data.main.humidity);
+
+            // Format date
+            const date = new Date(data.dt_txt)
+            const dateStr = `${digitToDay(date.getDay())} ${date.getMonth() + 1}/${date.getDate()}`
+
+            const newForecastEl = createForecastCard(dateStr, data.weather[0].icon, data.weather[0].description, data.main.temp, data.wind.speed, data.main.humidity);
             forecastEl.append(newForecastEl);
         };
     };
