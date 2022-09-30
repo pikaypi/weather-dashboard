@@ -120,15 +120,18 @@ const renderCitiesList = () => {
     };
 };
 
-// A function for populating current weather
+// A function for rendering the current weather section
 const renderCurrentWeather = async (cityName) => {
+    // Collect geo info needed for weather fetch
     const geoFetch = await fetch(`${geoUrl}?q=${cityName}&appid=${apiKey}`)
         .then(res => res.json())
         .then(res => res[0]);
 
+    // Collect the weather data
     const weatherFetch = await fetch(`${weatherUrl}?lat=${geoFetch.lat}&lon=${geoFetch.lon}&appid=${apiKey}&units=imperial`)
         .then(res => res.json())
 
+    // Change the content in the display
     locationEl.textContent = geoFetch.name;
     tempNowEl.textContent = weatherFetch.main.temp + '\u2109';
     windNowEl.textContent = weatherFetch.wind.speed + ' MPH';
