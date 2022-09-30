@@ -1,3 +1,7 @@
+.current {
+    background-color: #4f87a7;
+}
+
 .city:hover {
     cursor: pointer;
 }
