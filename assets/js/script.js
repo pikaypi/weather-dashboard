@@ -11,7 +11,7 @@ const locationEl = document.getElementById('location');
 const tempNowEl = document.getElementById('temp-now');
 const windNowEl = document.getElementById('wind-now');
 const humidityNowEl = document.getElementById('humidity-now');
-const uvNowEl = document.getElementById('uv-now')
+const iconEl = document.getElementById('icon');
 
 // A function to render the html for each city saved on the list
 const createCityCard = (cityName) => {
@@ -92,6 +92,8 @@ const renderCurrentWeather = async (cityName) => {
     tempNowEl.textContent = weatherFetch.main.temp + '\u2109';
     windNowEl.textContent = weatherFetch.wind.speed + ' MPH';
     humidityNowEl.textContent = weatherFetch.main.humidity + ' %';
+    iconEl.setAttribute('src', `http://openweathermap.org/img/wn/${weatherFetch.weather[0].icon}@2x.png`);
+    iconEl.setAttribute('alt', weatherFetch.weather[0].description);
 };
 
 const handleSearchSubmit = (event) => {
