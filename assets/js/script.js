@@ -79,6 +79,7 @@ const renderCitiesList = () => {
         })
     };
 };
+
 // A function for populating current weather
 const renderCurrentWeather = async (cityName) => {
     const geoFetch = await fetch(`${geoUrl}?q=${cityName}&appid=${apiKey}`)
