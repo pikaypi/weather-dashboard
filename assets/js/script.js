@@ -11,7 +11,7 @@ const createCityCard = (cityName) => {
     newCityEl.setAttribute('id', cityName);
     newCityEl.classList.add('border', 'm-1', 'rounded', 'p-1', 'text-center', 'border-dark', 'city');
     newCityEl.innerHTML = cityName
-    citiesListEl.append(newCityEl)
+    return newCityEl
 }
 
 // A function that stores new cities into local storage
