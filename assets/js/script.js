@@ -158,14 +158,14 @@ const renderCurrentWeather = async (cityName) => {
 
     // Format the date
     const date = new Date(weatherFetch.dt * 1000)
-    dateEl.textContent = `${digitToMonth(date.getMonth())} ${date.getDate()}, ${date.getFullYear()}`
 
     // Change the content in the display
     weatherEl.setAttribute('style', 'background-color: #4f87a7;')
     locationEl.textContent = geoFetch.name;
-    tempNowEl.textContent = weatherFetch.main.temp + '\u2109';
-    windNowEl.textContent = weatherFetch.wind.speed + ' MPH';
-    humidityNowEl.textContent = weatherFetch.main.humidity + ' %';
+    dateEl.textContent = `${digitToMonth(date.getMonth())} ${date.getDate()}, ${date.getFullYear()}`;
+    tempNowEl.textContent = 'Temp: ' + weatherFetch.main.temp + '\u2109';
+    windNowEl.textContent = 'Wind: ' + weatherFetch.wind.speed + ' MPH';
+    humidityNowEl.textContent = 'Humidity: ' + weatherFetch.main.humidity + ' %';
     iconEl.setAttribute('src', `http://openweathermap.org/img/wn/${weatherFetch.weather[0].icon}@2x.png`);
     iconEl.setAttribute('alt', weatherFetch.weather[0].description);
 };
