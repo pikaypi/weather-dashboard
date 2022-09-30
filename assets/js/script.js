@@ -140,6 +140,14 @@ const renderCurrentWeather = async (cityName) => {
     iconEl.setAttribute('alt', weatherFetch.weather[0].description);
 };
 
+// A function for rendering the forecast section
+const renderForecast = async (cityName) => {
+    // Collect geo info needed for forecast fetch
+    const geoFetch = await fetch(`${geoUrl}?q=${cityName}&appid=${apiKey}`)
+    .then(res => res.json())
+    .then(res => res[0]);
+};
+
 // A function to handle the request for weather
 const handleSearchSubmit = (event) => {
     // Prevent page from reloading
